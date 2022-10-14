@@ -24,6 +24,7 @@ struct NumberButton: View {
     var body: some View {
         Button {
             // Model中添加数字
+            document.tapNumber(number)
         } label: {
             Circle()
                 .fill(.gray)

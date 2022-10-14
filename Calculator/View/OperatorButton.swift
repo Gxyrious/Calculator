@@ -31,7 +31,7 @@ struct OperatorButton: View {
     
     var body: some View {
         Button {
-            //
+            document.tapOperator(ope)
         } label: {
             Circle()
                 .fill(.yellow)

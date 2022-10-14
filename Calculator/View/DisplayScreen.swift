@@ -12,7 +12,7 @@ struct DisplayScreen: View {
     @EnvironmentObject var document: CDocument
     
     var body: some View {
-        Text(document.curNum)
+        Text(document.screenNumber)
             .font(.system(size: 80))
             .foregroundColor(.white)
     }

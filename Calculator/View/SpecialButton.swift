@@ -24,14 +24,14 @@ struct ClearButton: View {
     
     var body: some View {
         Button {
-            //
+            document.clear()
         } label: {
             Circle()
                 .fill(.brown)
                 .padding(3)
                 .frame(width: size, height: size)
                 .overlay(
-                    (document.ope == -1 ? Text("AC") : Text("C"))
+                    (document.curNum == nil ? Text("AC") : Text("C"))
                         .font(.system(size: 40))
                         .foregroundColor(.black)
                 )
@@ -50,7 +50,7 @@ struct ReverseButton: View {
     
     var body: some View {
         Button {
-            //
+            document.reverse()
         } label: {
             Circle()
                 .fill(.brown)

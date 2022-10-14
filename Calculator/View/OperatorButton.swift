@@ -1,5 +1,5 @@
 //
-//  TemplateButton.swift
+//  OperatorButton.swift
 //  Calculator
 //
 //  Created by 刘畅 on 2022/10/14.
@@ -7,16 +7,26 @@
 
 import SwiftUI
 
-struct TemplateButton: View {
-    let fgColor: Color
-    let bkColor: Color
+struct OperatorButton: View {
+    
+    @EnvironmentObject var document: CDocument
+    
+    let ope: Int
+    
+    let overlay_map = [
+        0: "=",
+        1: "+",
+        2: "-",
+        3: "*",
+        4: "/",
+    ]
+    
     let size: CGFloat
-    let overlay: String
     
     var buttonOverlay: some View {
-        Text(overlay)
+        Text(overlay_map[ope]!)
             .font(.system(size: 40))
-            .foregroundColor(fgColor)
+            .foregroundColor(.white)
     }
     
     var body: some View {
@@ -24,7 +34,7 @@ struct TemplateButton: View {
             //
         } label: {
             Circle()
-                .fill(bkColor)
+                .fill(.yellow)
                 .padding(3)
                 .frame(width: size, height: size)
                 .overlay(buttonOverlay)
@@ -33,8 +43,8 @@ struct TemplateButton: View {
     }
 }
 
-struct TemplateButton_Previews: PreviewProvider {
+struct OperatorButton_Previews: PreviewProvider {
     static var previews: some View {
-        TemplateButton(fgColor: .gray, bkColor: .black, size: 80, overlay: "AC")
+        OperatorButton(ope: 0, size: 80)
     }
 }

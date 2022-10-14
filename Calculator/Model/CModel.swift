@@ -11,7 +11,7 @@ struct CModel {
     var lasNum: String?
     var curNum: String = "0"
     
-    var ope: Int = 0
+    var ope: Int = -1
     
     mutating func setLastNumber(number: String) {
         lasNum = number
@@ -19,6 +19,12 @@ struct CModel {
     
     mutating func setCurrentNumber(number: String) {
         curNum = number
+    }
+    
+    mutating func clearAll() {
+        lasNum = nil
+        curNum = "0"
+        ope = -1
     }
     
     enum Operate {

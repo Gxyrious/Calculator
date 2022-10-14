@@ -31,34 +31,34 @@ struct ContentView: View {
                 // 按键区域
                 Grid() {
                     GridRow {
-                        TemplateButton(fgColor: .black, bkColor: .teal, size: buttonSize, overlay: "AC")
-                        TemplateButton(fgColor: .black, bkColor: .teal, size: buttonSize, overlay: "+/-")
-                        TemplateButton(fgColor: .black, bkColor: .teal, size: buttonSize, overlay: "%")
-                        TemplateButton(fgColor: .white, bkColor: .yellow, size: buttonSize, overlay: "/")
+                        ClearButton(size: buttonSize)
+                        ReverseButton(size: buttonSize)
+                        PercentageButton(size: buttonSize)
+                        OperatorButton(ope: 4, size: buttonSize)
                     }
                     GridRow {
-                        TemplateButton(fgColor: .white, bkColor: .gray, size: buttonSize, overlay: "7")
-                        TemplateButton(fgColor: .white, bkColor: .gray, size: buttonSize, overlay: "8")
-                        TemplateButton(fgColor: .white, bkColor: .gray, size: buttonSize, overlay: "9")
-                        TemplateButton(fgColor: .white, bkColor: .yellow, size: buttonSize, overlay: "*")
+                        NumberButton(number: "7", size: buttonSize)
+                        NumberButton(number: "8", size: buttonSize)
+                        NumberButton(number: "9", size: buttonSize)
+                        OperatorButton(ope: 3, size: buttonSize)
                     }
                     GridRow {
-                        TemplateButton(fgColor: .white, bkColor: .gray, size: buttonSize, overlay: "4")
-                        TemplateButton(fgColor: .white, bkColor: .gray, size: buttonSize, overlay: "5")
-                        TemplateButton(fgColor: .white, bkColor: .gray, size: buttonSize, overlay: "6")
-                        TemplateButton(fgColor: .white, bkColor: .yellow, size: buttonSize, overlay: "-")
+                        NumberButton(number: "4", size: buttonSize)
+                        NumberButton(number: "5", size: buttonSize)
+                        NumberButton(number: "6", size: buttonSize)
+                        OperatorButton(ope: 2, size: buttonSize)
                     }
                     GridRow {
-                        TemplateButton(fgColor: .white, bkColor: .gray, size: buttonSize, overlay: "1")
-                        TemplateButton(fgColor: .white, bkColor: .gray, size: buttonSize, overlay: "2")
-                        TemplateButton(fgColor: .white, bkColor: .gray, size: buttonSize, overlay: "3")
-                        TemplateButton(fgColor: .white, bkColor: .yellow, size: buttonSize, overlay: "+")
+                        NumberButton(number: "1", size: buttonSize)
+                        NumberButton(number: "2", size: buttonSize)
+                        NumberButton(number: "3", size: buttonSize)
+                        OperatorButton(ope: 1, size: buttonSize)
                     }
                     GridRow {
-                        TemplateButton(fgColor: .white, bkColor: .gray, size: buttonSize, overlay: "0")
-                        TemplateButton(fgColor: .white, bkColor: .gray, size: buttonSize, overlay: "1/x")
-                        TemplateButton(fgColor: .white, bkColor: .gray, size: buttonSize, overlay: ".")
-                        TemplateButton(fgColor: .white, bkColor: .yellow, size: buttonSize, overlay: "=")
+                        NumberButton(number: "0", size: buttonSize)
+                        InvertButton(size: buttonSize)
+                        DotButton(size: buttonSize)
+                        OperatorButton(ope: 0, size: buttonSize)
                     }
 
                 }

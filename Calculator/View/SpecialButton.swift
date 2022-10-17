@@ -76,7 +76,9 @@ struct PercentageButton: View {
     
     var body: some View {
         Button {
-            //
+            document.tapOperator(4)
+            document.tapNumber("100")
+            document.tapOperator(0)
         } label: {
             Circle()
                 .fill(.brown)

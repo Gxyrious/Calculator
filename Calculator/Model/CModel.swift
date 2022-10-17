@@ -10,7 +10,7 @@ import Foundation
 struct CModel {
     var lasNum: String?
     var curNum: String?
-    var screenNumber: String = "0"
+    var screenText: String = "0"
     var ope: Int = -1
     
     mutating func setLastNumber(number: String?) {
@@ -21,12 +21,12 @@ struct CModel {
         curNum = number
     }
     
-    mutating func setScreenNumber(number: String) {
-        screenNumber = number
+    mutating func followCurrentNumber() {
+        screenText = curNum!
     }
     
-    mutating func followCurrentNumber() {
-        screenNumber = curNum!
+    mutating func setScreenText(text: String) {
+        screenText = text
     }
     
     mutating func setOperator(ope: Int) {
@@ -36,7 +36,7 @@ struct CModel {
     mutating func clearAll() {
         lasNum = nil
         curNum = nil
-        screenNumber = "0"
+        screenText = "0"
         ope = -1
     }
     

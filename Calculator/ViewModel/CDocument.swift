@@ -19,7 +19,7 @@ class CDocument: ObservableObject {
     
     var curNum: String? { cModel.curNum }
     
-    var screenNumber: String { cModel.screenNumber }
+    var screenNumber: String { cModel.screenText }
     
     var ope: Int { cModel.ope }
     
@@ -57,11 +57,14 @@ class CDocument: ObservableObject {
             // 等号，则直接计算
             let currentNumber = Int(curNum!)!
             let lastNumber = Int(lasNum!)!
-            let answer = simpleCalculate(left: lastNumber, right: currentNumber)
-            print("answer=\(answer)")
-            if answer != nil {
+            do {
+                let answer = try simpleCalculate(left: lastNumber, right: currentNumber)
+                print("answer=\(answer!)")
                 cModel.setCurrentNumber(number: String(answer!))
                 cModel.followCurrentNumber()
+            } catch {
+                print(error)
+                cModel.setScreenText(text: "Error")
             }
         } else {
             cModel.setOperator(ope: ope)
@@ -70,22 +73,26 @@ class CDocument: ObservableObject {
         }
     }
     
-    private func simpleCalculate(left: Int, right: Int) -> Int? {
+    private func simpleCalculate(left: Int, right: Int) throws -> Int? {
         var answer: Int? = nil
-        do {
-            if ope == 1 {
-                answer = left + right
-            } else if ope == 2 {
-                answer = left - right
-            } else if ope == 3 {
-                answer = left * right
-            } else if ope == 4 {
-                /* try */ answer = left / right
+        if ope == 1 {
+            answer = left + right
+        } else if ope == 2 {
+            answer = left - right
+        } else if ope == 3 {
+            answer = left * right
+        } else if ope == 4 {
+            if right == 0 {
+                throw OperationError.DividedByZero
+            } else {
+                answer = left / right
             }
-        } catch {
-            print(error)
         }
         return answer
     }
     
+}
+
+enum OperationError: Error {
+    case DividedByZero
 }
